@@ -1,0 +1,59 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "Curso de formación de Polymer",
+      "description": "Creación de Progressive Web Apps con Polymer 2",
+      "timestamp": "1545778800",
+      "location": "C/ Narciso Serra 25, Madrid",
+      "category": "Formación",
+      "owner": "Gloria Fernández",
+      "acceptances": "15",
+      "cancellations": "5"
+    },
+    {
+      "id": 2,
+      "name": "Campanadas de Fin de Año",
+      "description": "Celebrar la llegada de fin de año comiendo las uvas de la suerte",
+      "timestamp": "1546210800",
+      "location": "Puerta del Sol, Madrid",
+      "category": "Ocio",
+      "owner": "Gloria Fernández",
+      "acceptances": "20",
+      "cancellations": "0"
+    },
+    {
+      "id": 3,
+      "name": "Cabalgata de los Reyes Magos",
+      "description": "Ser buenos y acostarse temprano para que lleguen los Reyes Magos",
+      "timestamp": "1546642800",
+      "location": "Puerta del Sol, Madrid",
+      "category": "Ocio",
+      "owner": "Gloria Fernández",
+      "acceptances": "20",
+      "cancellations": "0"
+    },
+    {
+      "id": 4,
+      "name": "Nuevos proyectos",
+      "description": "Comienzo en el BBVA con ilusión",
+      "timestamp": "1549321200",
+      "location": "Las Tablas, Madrid",
+      "category": "Trabajo",
+      "owner": "Gloria Fernández",
+      "acceptances": "5",
+      "cancellations": "0"
+    },
+    {
+      "id": 5,
+      "name": "Escapada de fin de semana",
+      "description": "Viaje por la costa de levante",
+      "timestamp": "1550098800",
+      "location": "Valencia",
+      "category": "Ocio",
+      "owner": "Javier Pérez",
+      "acceptances": "2",
+      "cancellations": "0"
+    }
+  ]
+}
