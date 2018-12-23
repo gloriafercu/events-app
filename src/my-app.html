@@ -20,10 +20,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="my-icons.html">
-
 <link rel="lazy-import" href="my-events.html">
 <link rel="lazy-import" href="my-edit-event.html">
+<link rel="lazy-import" href="my-event-form.html">
 <link rel="lazy-import" href="my-view2.html">
 <link rel="lazy-import" href="my-view3.html">
 <link rel="lazy-import" href="my-view404.html">
@@ -34,7 +36,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         --app-primary-color: #4285f4;
         --app-secondary-color: black;
-
         display: block;
       }
 
@@ -68,6 +69,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
     </style>
+
+    <iron-ajax
+      id="ajaxEventsContainer"
+      url="http://localhost:3000/events" 
+      auto 
+      last-response="{{calendarEvents}}" 
+      loading="{{loading}}">
+    </iron-ajax>
+
+    <paper-spinner 
+      active="[[loading]]">
+    </paper-spinner>
 
     <app-location
       route="{{route}}"
@@ -107,10 +120,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           attr-for-selected="name"
           fallback-selection="view404"
           role="main">
-          <my-events name="events"></my-events>
+          <my-events 
+            name="events"
+            calendar-events="[[calendarEvents]]">
+          </my-events>
+          <my-event-form 
+            name="event-form"
+            route="[[subroute]]">
+          </my-event-form>
           <my-edit-event 
             name="edit-event"
-            route="[[subroute]]">
+            route="[[subroute]]"
+            on-put-response-in-json="updateEventsInJson">
           </my-edit-event>
           <my-view2 name="view2"></my-view2>
           <my-view3 name="view3"></my-view3>
@@ -139,7 +160,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           subroute: Object,
           // This shouldn't be neccessary, but the Analyzer isn't picking up
           // Polymer.Element#rootPath
-          rootPath: String,
+          rootPath: String
         };
       }
 
@@ -172,6 +193,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _showPage404() {
         this.page = 'view404';
+      }
+
+      updateEventsInJson() {
+        console.log('actualizar eventos');
+        this.$.ajaxEventsContainer.generateRequest();
       }
     }
 

@@ -10,8 +10,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/polymer/lib/elements/dom-repeat.html">
-<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/dile-timestamp-to-date/dile-timestamp-to-date.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-events">
@@ -27,28 +27,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       .card__title {
         padding-bottom: 10px;
       }
+      .button__container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
     </style>
-
-    <iron-ajax 
-      url="http://localhost:3000/events" 
-      auto 
-      last-response="{{calendarEvents}}" 
-      loading="{{loading}}">
-    </iron-ajax>
-
-    <paper-spinner 
-      active="[[loading]]">
-    </paper-spinner>
 
     <div class="card">
       <div class="circle">1</div>
+      <div class="button__container">
+        <a href="/event-form">
+          <paper-button class="button button--new-event">Insertar evento</paper-button>
+        </a>
+      </div>
       <h1 class="card__title">Listado de Eventos</h1>
-      <template is="dom-repeat" items="[[calendarEvents]]">
-        <p class="card__item">
-          [[item.name]]
-          <a href$="/edit-event/[[item.id]]">Editar</a>
-        </p>       
-      </template>
+      <ul class="events__container">
+        <template is="dom-repeat" items="[[calendarEvents]]">
+          <li class="card__item">
+            <p class="event__name">[[item.name]]</p>
+            <p class="event__time">[[item.timestamp]]</p>
+            <p class="event__location">[[item.location]]</p>
+            <a href$="/edit-event/[[item.id]]">Editar</a>
+            <dile-timestamp-to-date
+              timestamp="499616115130"
+              format="es">
+            </dile-timestamp-to-date>
+          </li>
+        </template>
+      </ul>
     </div>
   </template>
 

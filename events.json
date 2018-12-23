@@ -2,18 +2,18 @@
   "events": [
     {
       "id": 1,
-      "name": "Curso de formación de Polymer",
+      "name": "Curso de formación de Polymer 3",
       "description": "Creación de Progressive Web Apps con Polymer 2",
-      "timestamp": "1545778800",
+      "timestamp": "2590809809890",
       "location": "C/ Narciso Serra 25, Madrid",
       "category": "Formación",
       "owner": "Gloria Fernández",
       "acceptances": "15",
-      "cancellations": "5"
+      "cancellations": "4"
     },
     {
       "id": 2,
-      "name": "Campanadas de Fin de Año",
+      "name": "Campanadas de Fin de Año 2018",
       "description": "Celebrar la llegada de fin de año comiendo las uvas de la suerte",
       "timestamp": "1546210800",
       "location": "Puerta del Sol, Madrid",
@@ -24,18 +24,18 @@
     },
     {
       "id": 3,
-      "name": "Cabalgata de los Reyes Magos",
+      "name": "Cabalgata de los Reyes",
       "description": "Ser buenos y acostarse temprano para que lleguen los Reyes Magos",
-      "timestamp": "1546642800",
+      "timestamp": "154664",
       "location": "Puerta del Sol, Madrid",
       "category": "Ocio",
-      "owner": "Gloria Fernández",
+      "owner": "Javier",
       "acceptances": "20",
       "cancellations": "0"
     },
     {
       "id": 4,
-      "name": "Nuevos proyectos",
+      "name": "Nuevos proyectos en BBVA",
       "description": "Comienzo en el BBVA con ilusión",
       "timestamp": "1549321200",
       "location": "Las Tablas, Madrid",

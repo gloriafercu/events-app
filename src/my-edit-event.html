@@ -1,4 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-edit-event">
@@ -8,12 +11,77 @@
         display: block;
         padding: 10px;
       }
+      
     </style>
+
+    <app-route
+      route="{{route}}"
+      pattern="[[rootPath]]:id"
+      data="{{routeData}}"
+      tail="{{subroute}}">
+    </app-route>
+
+    <iron-ajax
+      id="ajaxId"
+      url="http://localhost:3000/events/[[id]]"
+      handle-as="json" 
+      last-response="{{calendarEvent}}">
+    </iron-ajax>
+
+    <iron-ajax
+      id="ajaxPut"
+      method="put"
+      body="[[calendarEvent]]"
+      content-type="application/json"
+      url="http://localhost:3000/events/[[id]]"
+      handle-as="json"
+      on-response="putResponseInJson"
+      on-error="putError">
+    </iron-ajax>
 
     <div class="card">
       <h1>Editar evento</h1>
-    </div>
 
+      <paper-input 
+        label="Nombre" 
+        value="{{calendarEvent.name}}">
+      </paper-input>
+      <paper-input 
+        label="Descripción" 
+        value="{{calendarEvent.description}}">
+      </paper-input>
+      <paper-input 
+        label="Fecha y Hora" 
+        value="{{calendarEvent.timestamp}}">
+      </paper-input>
+      <paper-input 
+        label="Lugar" 
+        value="{{calendarEvent.location}}">
+      </paper-input>
+      <paper-input 
+        label="Creador" 
+        value="{{calendarEvent.owner}}">
+      </paper-input>
+      <paper-input 
+        label="Categoría" 
+        value="{{calendarEvent.category}}">
+      </paper-input>
+      <paper-input 
+        label="Aceptaciones" 
+        value="{{calendarEvent.acceptances}}">
+      </paper-input>
+      <paper-input 
+        label="Cancelaciones" 
+        value="{{calendarEvent.cancellations}}">
+      </paper-input>
+      <a href="/">
+        <paper-button 
+          class="button button--edit"
+          on-click="editEvent">
+          Guardar cambios
+        </paper-button>
+      </a>
+    </div>
   </template>
 
   <script>
@@ -38,8 +106,36 @@
        */
       static get properties() {
         return {
-          
+          route: Object,
+          routeData: Object,
+          id: Number,
+          calendarEvent: Object
         };
+      }
+
+      static get observers() {
+        return [
+          'idChangedObserver(routeData.id)'
+        ];
+      }
+
+      idChangedObserver(id) {
+        this.id = id;
+        this.$.ajaxId.generateRequest();
+      }
+
+      editEvent() {
+        console.log('Editar');
+        this.$.ajaxPut.generateRequest()
+      }
+
+      putResponseInJson(e) {
+        console.log(e.detail);
+        this.dispatchEvent(new CustomEvent('put-response-in-json'));
+      }
+
+      putError() {
+        console.log(e.detail);
       }
     }
 

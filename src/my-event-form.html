@@ -1,0 +1,65 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-event-form">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block
+      }
+    </style>
+
+    <div class="card">
+      <div class="button__container">
+        <a href="/">
+          <paper-button class="button button--event-list">Ir listado eventos</paper-button>
+        </a>
+      </div>
+      <form action="">
+        <label for="">Nombre</label>
+        <input type="text">
+      </form>
+    </div>
+  </template>
+
+  <app-route
+    route="{{route}}"
+    pattern="[[rootPath]]:page"
+    data="{{routeData}}"
+    tail="{{subroute}}">
+  </app-route>
+
+  <script>
+    /**
+     * `my-event-form` Description
+     *
+     * @summary ShortDescription.
+     * @customElement
+     * @polymer
+     * @extends {Polymer.Element}
+     */
+    class MyEventForm extends Polymer.Element {
+      /**
+       * String providing the tag name to register the element under.
+       */
+      static get is() {
+        return 'my-event-form';
+      }
+
+      /**
+       * Object describing property-related metadata used by Polymer features
+       */
+      static get properties() {
+        return {
+          
+        };
+      }
+
+
+
+    }
+
+    window.customElements.define(MyEventForm.is, MyEventForm);
+  </script>
+</dom-module>
