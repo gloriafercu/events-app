@@ -1,5 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-event-form">
@@ -8,18 +10,90 @@
       :host {
         display: block
       }
+      .date-and-time__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .date__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 3%;
+      }
+      .time__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .month {
+        margin: 0 3%;
+      }
+      .minutes {
+        margin-left: 3%;
+      }
     </style>
 
     <div class="card">
       <div class="button__container">
-        <a href="/">
-          <paper-button class="button button--event-list">Ir listado eventos</paper-button>
+        <a href="/events">
+          <paper-button class="button button--event-list">Ir a eventos</paper-button>
         </a>
       </div>
-      <form action="">
-        <label for="">Nombre</label>
-        <input type="text">
-      </form>
+      <h1>Crear evento</h1>
+      <iron-form>
+        <form method="post" action="/form/handler">
+          <paper-input 
+            id="inputName"
+            label="Nombre">
+          </paper-input>
+          <paper-input
+            id="inputDescription"
+            label="Descripción">
+          </paper-input>
+          <!-- <div class="date-and-time__container">
+            <div class="date__container">
+              <paper-input 
+                label="DD">
+              </paper-input>
+              <paper-input 
+                class="month"
+                label="MM">
+              </paper-input>
+              <paper-input 
+                label="AAAA">
+              </paper-input>
+            </div>
+            <div class="time__container">
+              <paper-input 
+                label="HH">
+              </paper-input>
+              <paper-input 
+                class="minutes"
+                label="MM">
+              </paper-input>
+            </div>
+          </div> -->
+          <paper-input 
+            id="inputLocation"
+            label="Lugar">
+          </paper-input>
+          <paper-input
+            id="inputOwner" 
+            label="Creador">
+          </paper-input>
+          <paper-input 
+            id="inputCategory"
+            label="Categoría">
+          </paper-input>
+          <div class="button__container">
+            <!-- <a href="/events"> -->
+              <paper-button class="button button--save" on-click="createEvent">Guardar evento</paper-button>
+            <!-- </a> -->
+          </div>
+        </form>
+      </iron-form>
+     
     </div>
   </template>
 
@@ -52,8 +126,28 @@
        */
       static get properties() {
         return {
-          
-        };
+          calendarEvent: {
+            type: Object,
+            value: function() {
+              return {}
+            }
+          }
+        }
+      }
+
+      createEvent() {
+        this.calendarEvent = {
+          name: this.$.inputName.value,
+          description: this.$.inputDescription.value,
+          location: this.$.inputLocation.value,
+          owner: this.$.inputOwner.value,
+          category: this.$.inputCategory.value
+        }
+        console.log(this.calendarEvent);
+        return this.calendarEvent;
+
+        
+  
       }
 
 

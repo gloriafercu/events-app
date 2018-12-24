@@ -2,12 +2,12 @@
   "events": [
     {
       "id": 1,
-      "name": "Curso de formación de Polymer 3",
+      "name": "de formación de Polymer 3",
       "description": "Creación de Progressive Web Apps con Polymer 2",
       "timestamp": "2590809809890",
       "location": "C/ Narciso Serra 25, Madrid",
       "category": "Formación",
-      "owner": "Gloria Fernández",
+      "owner": "Fernández",
       "acceptances": "15",
       "cancellations": "4"
     },

@@ -21,27 +21,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
         padding: 10px;
       }
-      .card__item {
-        padding: 5px 0 0 25px;
-      }
-      .card__title {
-        padding-bottom: 10px;
-      }
-      .button__container {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-      }
     </style>
 
     <div class="card">
-      <div class="circle">1</div>
       <div class="button__container">
         <a href="/event-form">
-          <paper-button class="button button--new-event">Insertar evento</paper-button>
+          <paper-button class="button button--new-event">Crear evento</paper-button>
         </a>
       </div>
-      <h1 class="card__title">Listado de Eventos</h1>
+      <h1 class="card__title">Eventos</h1>
       <ul class="events__container">
         <template is="dom-repeat" items="[[calendarEvents]]">
           <li class="card__item">

@@ -11,7 +11,6 @@
         display: block;
         padding: 10px;
       }
-      
     </style>
 
     <app-route
@@ -74,13 +73,15 @@
         label="Cancelaciones" 
         value="{{calendarEvent.cancellations}}">
       </paper-input>
-      <a href="/">
-        <paper-button 
-          class="button button--edit"
-          on-click="editEvent">
-          Guardar cambios
-        </paper-button>
-      </a>
+      <div class="button__container">
+        <a href="/events">
+          <paper-button 
+            class="button button--save"
+            on-click="editEvent">
+            Guardar cambios
+          </paper-button>
+        </a>
+      </div>
     </div>
   </template>
 

@@ -19,7 +19,8 @@
     "paper-spinner": "PolymerElements/paper-spinner#^2.0.0",
     "paper-button": "PolymerElements/paper-button#^2.0.0",
     "paper-input": "PolymerElements/paper-input#^2.0.0",
-    "dile-timestamp-to-date": "Polydile/dile-timestamp-to-date#^0.0.2"
+    "dile-timestamp-to-date": "Polydile/dile-timestamp-to-date#^0.0.2",
+    "iron-form": "PolymerElements/iron-form#^2.0.0"
   },
   "resolutions": {
     "polymer": "^2.0.0"
