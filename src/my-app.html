@@ -122,11 +122,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           role="main">
           <my-events 
             name="events"
-            calendar-events="[[calendarEvents]]">
+            calendar-events="[[calendarEvents]]"
+            calerdar-event="[[calendarEvent]]"">
           </my-events>
           <my-event-form 
             name="event-form"
-            route="[[subroute]]">
+            route="[[subroute]]"
+            on-post-response-in-json="updateEventsInJson">
           </my-event-form>
           <my-edit-event 
             name="edit-event"

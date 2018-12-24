@@ -34,6 +34,17 @@
       }
     </style>
 
+    <iron-ajax
+      id="ajaxPost"
+      method="post"
+      body="[[calendarEvent]]"
+      content-type="application/json"
+      url="http://localhost:3000/events/[[id]]"
+      handle-as="json"
+      on-response="postResponseInJson"
+      on-error="postError">
+    </iron-ajax>
+
     <div class="card">
       <div class="button__container">
         <a href="/events">
@@ -87,9 +98,9 @@
             label="Categoría">
           </paper-input>
           <div class="button__container">
-            <!-- <a href="/events"> -->
+            <a href="/events">
               <paper-button class="button button--save" on-click="createEvent">Guardar evento</paper-button>
-            <!-- </a> -->
+            </a>
           </div>
         </form>
       </iron-form>
@@ -143,15 +154,20 @@
           owner: this.$.inputOwner.value,
           category: this.$.inputCategory.value
         }
-        console.log(this.calendarEvent);
-        return this.calendarEvent;
-
-        
-  
+        console.log('calendarEvent: ', this.calendarEvent);
+        this.$.ajaxPost.generateRequest();
+        // Falta fecha y hora
+        // ¿Como meto el id en json? calendarEvents.length + 1??
       }
 
+      postResponseInJson(e) {
+        console.log('postResponseInJson: ', e);
+        this.dispatchEvent(new CustomEvent('post-response-in-json'));
+      }
 
-
+      postError() {
+        console.log(e.detail);
+      }
     }
 
     window.customElements.define(MyEventForm.is, MyEventForm);
