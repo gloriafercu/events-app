@@ -62,29 +62,16 @@
             id="inputDescription"
             label="Descripción">
           </paper-input>
-          <!-- <div class="date-and-time__container">
+          <div class="date-and-time__container">
             <div class="date__container">
-              <paper-input 
-                label="DD">
-              </paper-input>
-              <paper-input 
-                class="month"
-                label="MM">
-              </paper-input>
-              <paper-input 
-                label="AAAA">
-              </paper-input>
+               <input type="date" id="inputDate">
+               <label for="inputDate">Fecha</label>
             </div>
             <div class="time__container">
-              <paper-input 
-                label="HH">
-              </paper-input>
-              <paper-input 
-                class="minutes"
-                label="MM">
-              </paper-input>
+              <input type="time" id="inputTime">
+              <label for="inputTime">Hora</label>
             </div>
-          </div> -->
+          </div>
           <paper-input 
             id="inputLocation"
             label="Lugar">
@@ -150,14 +137,16 @@
         this.calendarEvent = {
           name: this.$.inputName.value,
           description: this.$.inputDescription.value,
+          date: this.$.inputDate.value,
+          time: this.$.inputTime.value,
+          datetime: `${this.$.inputDate.value} ${this.$.inputTime.value}`,
+          timestamp: '',
           location: this.$.inputLocation.value,
           owner: this.$.inputOwner.value,
           category: this.$.inputCategory.value
         }
         console.log('calendarEvent: ', this.calendarEvent);
         this.$.ajaxPost.generateRequest();
-        // Falta fecha y hora
-        // ¿Como meto el id en json? calendarEvents.length + 1??
       }
 
       postResponseInJson(e) {

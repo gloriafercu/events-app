@@ -14,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/dile-timestamp-to-date/dile-timestamp-to-date.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../src/components/date-to-timestamp.html">
 
 <dom-module id="my-events">
   <template>
@@ -37,9 +38,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <div class="card__item__details">
               <p class="event__name">[[item.name]]</p>
               <p class="event__time">[[item.timestamp]]</p>
-              <!-- <p class="event__location">[[item.location]]</p> -->
+              <date-to-timestamp 
+                datetime$="[[item.datetime]]">
+              </date-to-timestamp>
               <dile-timestamp-to-date
-                timestamp="[[item.timestamp]]"
+                timestamp$="[[item.timestamp]]"
                 format="es">
               </dile-timestamp-to-date>
               <div class="button__container">

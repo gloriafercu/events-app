@@ -1,59 +1,37 @@
 {
   "events": [
     {
-      "id": 1,
-      "name": "Curso de formación de Polymer 3",
-      "description": "Creación de Progressive Web Apps con Polymer 2",
-      "timestamp": "1547561715000",
-      "location": "C/ Narciso Serra 25, Madrid",
-      "category": "Formación",
-      "owner": "Fernández",
-      "acceptances": "15",
-      "cancellations": "4"
-    },
-    {
-      "id": 2,
-      "name": "Campanadas de Fin de Año",
-      "description": "Celebrar la llegada de fin de año comiendo las uvas de la suerte",
-      "timestamp": "1546265715000",
+      "name": "Campanadas de Fin de año 2018",
+      "description": "Tomar las uvas de la suerte en la famosa puerta del Sol con los amigos y familiares.",
+      "date": "2018-12-31",
+      "time": "00:00",
+      "datetime": "2018-12-31 00:00",
       "location": "Puerta del Sol, Madrid",
+      "owner": "Gloria ",
       "category": "Ocio",
-      "owner": "Gloria Fernández",
-      "acceptances": "20",
-      "cancellations": "0"
+      "id": 1
     },
     {
-      "id": 3,
-      "name": "Cabalgata de los Reyes",
-      "description": "Ser buenos y acostarse temprano para que lleguen los Reyes Magos",
-      "timestamp": "1546697715000",
-      "location": "Puerta del Sol, Madrid",
-      "category": "Ocio",
-      "owner": "Javier",
-      "acceptances": "20",
-      "cancellations": "0"
-    },
-    {
-      "id": 4,
-      "name": "Nuevos proyectos en BBVA",
-      "description": "Comienzo en el BBVA con ilusión",
-      "timestamp": "1546438515000",
-      "location": "Las Tablas, Madrid",
+      "name": "Cocina con Karlos Arguiñano",
+      "description": "A cocinar rico rico y con fundamento.",
+      "date": "2019-01-17",
+      "time": "11:30",
+      "datetime": "2019-01-17 11:30",
+      "location": "Bilbao",
+      "owner": "Javi",
       "category": "Trabajo",
-      "owner": "Gloria Fernández",
-      "acceptances": "5",
-      "cancellations": "0"
+      "id": 2
     },
     {
-      "id": 5,
-      "name": "Escapada de fin de semana",
-      "description": "Viaje por la costa de levante",
-      "timestamp": "1547561715000",
-      "location": "Valencia",
+      "name": "Ir de cena con los amigos",
+      "description": "Pasarlo bien ",
+      "date": "2018-12-29",
+      "time": "15:30",
+      "datetime": "2018-12-29 15:30",
+      "location": "Cordoba",
+      "owner": "Juanjo",
       "category": "Ocio",
-      "owner": "Javier Pérez",
-      "acceptances": "2",
-      "cancellations": "0"
+      "id": 3
     }
   ]
 }
