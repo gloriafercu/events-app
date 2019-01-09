@@ -2,12 +2,11 @@
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
   "fragments": [
-    "src/my-app.html",
-    "src/my-edit-event.html",
-    "src/my-event-form.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
-    "src/my-view404.html"
+    "src/views/my-app.html",
+    "src/views/my-edit-event.html",
+    "src/views/my-event-form.html",
+    "src/views/my-events.html",
+    "src/views/my-view404.html"
   ],
   "sources": [
     "images/**/*",
